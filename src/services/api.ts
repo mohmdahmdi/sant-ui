@@ -1,4 +1,4 @@
-import {instance} from "@/lib/AxiosConfig";
+import instance from "@/lib/AxiosConfig";
 
 export type Product = {
   id: string;
@@ -13,5 +13,20 @@ export async function getProducts(): Promise<Product[]> {
 
 export async function getProduct(id: string): Promise<Product> {
   const { data } = await instance.get(`/products/${id}`);
+  return data;
+}
+
+export type ServiceCategory = {
+  id: string;
+  name: string;
+  total_services: string;
+};
+
+export async function getServiceCategories(
+  limit?: number
+): Promise<ServiceCategory[]> {
+  const { data } = await instance.get(
+    `/services/most-popular-categories/${limit}`
+  );
   return data;
 }

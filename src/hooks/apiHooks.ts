@@ -1,9 +1,11 @@
+"use client"
+
 import { useQuery } from "@tanstack/react-query";
 import services from "@/services"; // dynamically resolved dev/prod
 
-export function useProducts() {
+export function usePopularServiceCategories(limit?: number) {
   return useQuery({
-    queryKey: ["products"],
-    queryFn: () => services.getProducts(),
+    queryKey: ["popular-service-categories", limit],
+    queryFn: () => services.getServiceCategories(limit),
   });
 }

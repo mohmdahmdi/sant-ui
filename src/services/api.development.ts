@@ -1,5 +1,8 @@
 // import { productsMock } from "@/db/products";
 
+import { getPopularServiceCategories_data } from "@/data/mocks";
+import { ServiceCategory } from "./api";
+
 // // Mock implementation
 // export async function getProducts() {
 //   // mimic async API call
@@ -15,3 +18,11 @@
 //     else reject(new Error("Product not found"));
 //   });
 // }
+
+export async function getServiceCategories(
+  limit: number
+): Promise<ServiceCategory[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(getPopularServiceCategories_data), 300);
+  });
+}
