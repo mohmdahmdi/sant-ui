@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import ReactQueryProvider from "../providers/ReactQueryProvider";
+import Navbar from "../components/Navbar";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
 });
 
@@ -12,6 +14,22 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+// const vazir = localFont({
+//   variable: "--font-vazir",
+//   src: [
+//     {
+//       path: "../fonts/Vazirmatn-Regular.woff2",
+//       weight: "400",
+//       style: "normal",
+//     },
+//     {
+//       path: "../fonts/Vazirmatn-Bold.woff2",
+//       weight: "700",
+//       style: "normal",
+//     },
+//   ],
+// });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +43,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistMono.variable} ${roboto.variable} antialiased`}>
+        <Navbar />
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>

@@ -8,7 +8,7 @@ export default function Home() {
   return isLoading || isError ? (
     <div>loading...</div>
   ) : (
-    <div>
+    <div className="absolute left-1/2 top-1/2 ">
       {data?.map((cat) => (
         <div key={cat.id}>{cat.name}</div>
       ))}
