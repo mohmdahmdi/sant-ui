@@ -1,11 +1,14 @@
 "use client";
 
-import { useMutation, useQuery } from "@tanstack/react-query";
+import {
+  useMutation,
+} from "@tanstack/react-query";
 import services from "@/services";
 import { credential } from "@/services/api";
 import cookieManager from "@/utils/cookieManager";
 import localStorageManager from "@/utils/localStorageManager";
 import { queryClient } from "@/lib/QueryClient";
+import { useApi } from "./useApi";
 
 export function useRegister(credential: credential) {
   return useMutation({
@@ -37,8 +40,9 @@ export function useLogin(credential: credential) {
 }
 
 export function usePopularServiceCategories(limit?: number) {
-  return useQuery({
-    queryKey: ["popular-service-categories", limit],
-    queryFn: () => services.getServiceCategories(limit),
-  });
+  return useApi(
+    ["popular-service-categories", limit ?? 8],
+    () => services.getServiceCategories(limit),
+    'popularCategories'
+  );
 }
