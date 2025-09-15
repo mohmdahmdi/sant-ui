@@ -13,12 +13,15 @@
   "dependencies": {
     "@tanstack/react-query": "^5.85.9",
     "@tanstack/react-query-devtools": "^5.85.9",
+    "@types/leaflet": "^1.9.20",
     "@types/moment-jalaali": "^0.7.9",
     "axios": "^1.11.0",
+    "leaflet": "^1.9.4",
     "moment-jalaali": "^0.10.4",
     "next": "15.5.2",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "^19.0.0-rc.1",
+    "react-dom": "^19.0.0-rc.1",
+    "react-leaflet": "^5.0.0-rc.2",
     "react-loading-indicators": "^1.0.1",
     "react-toastify": "^11.0.5",
     "vazir-font": "^30.1.0"

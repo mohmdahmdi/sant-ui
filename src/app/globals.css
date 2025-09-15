@@ -102,7 +102,7 @@ body {
 }
 
 .container {
-  @apply pt-4 px-6 w-screen;
+  @apply pt-4 px-6 overflow-hidden;
 }
 
 .animate-marquee:hover {
