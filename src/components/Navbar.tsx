@@ -6,7 +6,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="w-full bg-white border-b py-2 border-neutral-200 flex items-center justify-between">
+    <nav className="w-full bg-white shadow-sm py-2 flex items-center justify-between">
       <div className="flex flex-1 gap-x-7 items-center">
         {/* <div></div>*/} {/* for logo */}
         <Link href={'/'} className="flex flex-col items-center">
