@@ -63,9 +63,9 @@ export default function Map() {
     isFetchingLocationsInBound,
   } = useLocationsInBound({
     swLat: bounds?.sw.lat || 0,
-    swLon: bounds?.sw.lng || 0,
+    swLng: bounds?.sw.lng || 0,
     neLat: bounds?.ne.lat || 0,
-    neLon: bounds?.ne.lng || 0,
+    neLng: bounds?.ne.lng || 0,
   });
 
   const handleBoundsChange = (newBounds: { sw: L.LatLng; ne: L.LatLng }) => {

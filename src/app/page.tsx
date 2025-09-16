@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <main className="container">
-      {/* <section className="flex w-full gap-x-6">
+      <section className="flex w-full gap-x-6">
         <div className="bg-white shadow-md w-1/4 rounded-2xl p-4 h-[85vh]">
           <div className="flex items-center gap-2 mb-3">
             <p className="text-sm text-primary-800 font-bold">فیلترها</p>
@@ -68,7 +68,7 @@ export default function Home() {
           </p>
           <HeroIcon className="absolute left-0 top-1/2 -translate-y-1/2" />
         </div>
-      </section> */}
+      </section>
 
       {/* Map section with conditional rendering */}
       <section className="w-full h-96 mt-8">

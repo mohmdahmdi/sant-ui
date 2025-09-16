@@ -67,18 +67,18 @@ export function useMapLocations({
 
 export function useLocationsInBound({
   swLat,
-  swLon,
+  swLng,
   neLat,
-  neLon,
+  neLng,
 }: {
   swLat: number;
-  swLon: number;
+  swLng: number;
   neLat: number;
-  neLon: number;
+  neLng: number;
 }) {
   return useApi(
-    ["find-in-bounds", swLat, swLon, neLat, neLon],
-    () => services.getFindInBound(swLat, swLon, neLat, neLon),
+    ["find-in-bounds", swLat, swLng, neLat, neLng],
+    () => services.getFindInBound(swLat, swLng, neLat, neLng),
     "locationsInBound",
     { refetchOnWindowFocus: false }
   );

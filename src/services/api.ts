@@ -74,15 +74,15 @@ export async function getMapLocations(
 
 export async function getFindInBound(
   swLat: number,
-  swLon: number,
+  swLng: number,
   neLat: number,
-  neLon: number
+  neLng: number
 ): Promise<Location[]> {
   const { data } = await instance.post("/geographics/in-bounds", {
     swLat,
-    swLon,
+    swLng,
     neLat,
-    neLon,
+    neLng,
   });
   return data;
 }
