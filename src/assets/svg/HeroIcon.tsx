@@ -612,8 +612,8 @@ const HeroIcon :SVGComp = ({className}) => {
           y2="253.749"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#03001B" />
-          <stop offset="1" stop-color="#040431" />
+          <stop stopColor="#03001B" />
+          <stop offset="1" stopColor="#040431" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_52_1163"
@@ -623,8 +623,8 @@ const HeroIcon :SVGComp = ({className}) => {
           y2="75.5279"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#08041E" />
-          <stop offset="1" stop-color="#2E2A5A" />
+          <stop stopColor="#08041E" />
+          <stop offset="1" stopColor="#2E2A5A" />
         </linearGradient>
       </defs>
     </svg>

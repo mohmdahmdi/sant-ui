@@ -17,11 +17,11 @@
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-97%);
+      transform: translateX(-640px);
     }
   }
 
-  --animate-marquee: marquee 15s linear infinite;
+  --animate-marquee: marquee 20s linear infinite;
 }
 
 @theme {
@@ -102,9 +102,13 @@ body {
 }
 
 .container {
-  @apply pt-4 px-6 overflow-hidden;
+  @apply pt-4 px-6 overflow-hidden max-w-[1680px] absolute left-1/2 -translate-x-1/2;
 }
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+.ltr {
+  direction: ltr !important;
 }

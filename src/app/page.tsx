@@ -58,8 +58,8 @@ export default function Home() {
           {isLoading ? (
             <></>
           ) : (
-            <div className="relative w-full overflow-hidden">
-              <div className="flex flex-row-reverse animate-marquee gap-x-8">
+            <div className="w-full overflow-hidden">
+              <div className="ltr flex animate-marquee gap-x-8">
                 {popularCategories?.map((item, index) => (
                   <CategoryItem
                     key={`first-${index}`}
