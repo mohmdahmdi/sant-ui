@@ -1,7 +1,10 @@
 // import { productsMock } from "@/db/products";
 
-import { getPopularServiceCategories_data } from "@/data/mocks";
-import { ServiceCategory } from "./api";
+import {
+  getMapLocations_data,
+  getPopularServiceCategories_data,
+} from "@/data/mocks";
+import { Location, ServiceCategory } from "./api";
 
 // // Mock implementation
 // export async function getProducts() {
@@ -24,5 +27,17 @@ export async function getServiceCategories(
 ): Promise<ServiceCategory[]> {
   return new Promise((resolve) => {
     setTimeout(() => resolve(getPopularServiceCategories_data), 300);
+  });
+}
+
+export async function getMapLocations(): Promise<Location[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(getMapLocations_data), 300);
+  });
+}
+
+export async function getFindInBound(): Promise<Location[]> {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(getMapLocations_data), 300);
   });
 }

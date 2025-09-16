@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistMono.variable} ${roboto.variable} antialiased`}>
-        <Navbar />
+        {/* <Navbar /> */}
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>

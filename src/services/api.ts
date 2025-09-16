@@ -47,3 +47,42 @@ export async function getServiceCategories(
   );
   return data;
 }
+
+export type Location = {
+  id: string;
+  name: string;
+  city: string;
+  district: string;
+  address: string;
+  distance_m: number;
+  latitude: string;
+  longitude: string;
+};
+
+export async function getMapLocations(
+  lat: number,
+  lon: number,
+  radiusKm: number
+): Promise<Location[]> {
+  const { data } = await instance.post("/geographics/find-nearby", {
+    lat,
+    lon,
+    radiusKm,
+  });
+  return data;
+}
+
+export async function getFindInBound(
+  swLat: number,
+  swLon: number,
+  neLat: number,
+  neLon: number
+): Promise<Location[]> {
+  const { data } = await instance.post("/geographics/in-bounds", {
+    swLat,
+    swLon,
+    neLat,
+    neLon,
+  });
+  return data;
+}

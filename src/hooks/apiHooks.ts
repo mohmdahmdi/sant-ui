@@ -1,8 +1,6 @@
 "use client";
 
-import {
-  useMutation,
-} from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import services from "@/services";
 import { credential } from "@/services/api";
 import cookieManager from "@/utils/cookieManager";
@@ -43,6 +41,45 @@ export function usePopularServiceCategories(limit?: number) {
   return useApi(
     ["popular-service-categories", limit ?? 8],
     () => services.getServiceCategories(limit),
-    'popularCategories'
+    "popularCategories"
+  );
+}
+
+export function useMapLocations({
+  lat,
+  lng,
+  radiusKm,
+}: {
+  lat: number;
+  lng: number;
+  radiusKm: number;
+}) {
+  return useApi(
+    ["find-near", lat, lng, radiusKm],
+    () => services.getMapLocations(lat, lng, radiusKm),
+    "mapLocations",
+    {
+      enabled: !!lat && !!lng && radiusKm > 0,
+      refetchOnWindowFocus: false,
+    }
+  );
+}
+
+export function useLocationsInBound({
+  swLat,
+  swLon,
+  neLat,
+  neLon,
+}: {
+  swLat: number;
+  swLon: number;
+  neLat: number;
+  neLon: number;
+}) {
+  return useApi(
+    ["find-in-bounds", swLat, swLon, neLat, neLon],
+    () => services.getFindInBound(swLat, swLon, neLat, neLon),
+    "locationsInBound",
+    { refetchOnWindowFocus: false }
   );
 }

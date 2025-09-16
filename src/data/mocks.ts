@@ -27,3 +27,46 @@ export const getPopularServiceCategories_data = [
     total_services: "1",
   },
 ];
+
+export const getMapLocations_data = [
+  {
+    id: "f224e83e-e8d3-4650-b43b-bf59e62799a6",
+    name: "سالن آرایش مو",
+    city: "تبریز",
+    district: "راه آهن",
+    address: "خیابان شریعتی، پلاک ۴۵",
+    latitude: "38.096200",
+    longitude: "46.273800",
+    distance_m: 6336675.19838977,
+  },
+  {
+    id: "16306df6-7318-4655-a7d0-fe28124ccdaf",
+    name: "آرایشگر حرفه‌ای",
+    city: "شیراز",
+    district: "سعدی",
+    address: "خیابان لطفعلی خان، پلاک ۲۳",
+    latitude: "29.623600",
+    longitude: "52.533000",
+    distance_m: 6456464.08392986,
+  },
+  {
+    id: "31cee161-183c-4e12-8dbf-fc6e18861551",
+    name: "آرایشگاه مردانه",
+    city: "اصفهان",
+    district: "سی و سه پل",
+    address: "خیابان چهارباغ عباسی، پلاک ۵۶",
+    latitude: "32.653900",
+    longitude: "51.672500",
+    distance_m: 6504838.80444441,
+  },
+  {
+    id: "374cc8f7-3aa8-4dc7-b480-f2393a7daea7",
+    name: "استودیو ناخن",
+    city: "مشهد",
+    district: "رضا",
+    address: "بلوار وکیل‌آباد، پلاک ۷۸",
+    latitude: "36.298800",
+    longitude: "59.604200",
+    distance_m: 7329624.60502826,
+  },
+];

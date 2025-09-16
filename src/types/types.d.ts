@@ -3,3 +3,4 @@ export type SVGComp = ({
 }: {
   className?: string;
 }) => React.JSX.Element;
+
