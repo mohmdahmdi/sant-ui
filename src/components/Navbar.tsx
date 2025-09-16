@@ -2,23 +2,22 @@
 
 import { Button } from "@/stories/Button/Button";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React from "react";
-import { useNavigate } from "storybook/internal/router";
 
 const Navbar = () => {
   return (
     <nav className="w-full bg-white border-b py-2 border-neutral-200 flex items-center justify-between">
-      <div className="flex gap-x-2 items-center">
+      <div className="flex flex-1 gap-x-7 items-center">
         {/* <div></div>*/} {/* for logo */}
-        <div className="flex flex-col items-center">
+        <Link href={'/'} className="flex flex-col items-center">
           <span>سانتال</span>
           <span className="text-sm">متن جذب کاربر</span>
-        </div>
-        <div>گزینه اول</div>
-        <div>گزینه دوم</div>
-        <div>رزرو نوبت</div>
-        <div>ورود ارائه دهنده</div>
+        </Link>
+        <Link href={'/'}>خانه</Link>
+        <Link href={'/explore'} className="text-secondary-800">رزرو نوبت</Link>
+        <Link href={'/business'}>پنل کسب و کار</Link>
+        <Link href={'/freelancer'}>فریلنسرها</Link>
+        <Link href={'/about'}>درباره ما</Link>
       </div>
       <div className="flex gap-x-3 ml-3">
         <Link href={"/"}>
