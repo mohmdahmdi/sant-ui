@@ -86,3 +86,14 @@ export async function getFindInBound(
   });
   return data;
 }
+
+export type Kpis = {
+  total_customers: string;
+  total_beauticians: string;
+  total_businesses: string;
+  totalActiveAppointments: string;
+};
+export async function getKpis(): Promise<Kpis> {
+  const { data } = await instance.get("/reports/kpis");
+  return data;
+}

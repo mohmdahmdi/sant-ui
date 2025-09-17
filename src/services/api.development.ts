@@ -1,10 +1,12 @@
+import { Kpi } from "./../stories/Kpi/Kpi";
 // import { productsMock } from "@/db/products";
 
 import {
+  getKpis_data,
   getMapLocations_data,
   getPopularServiceCategories_data,
 } from "@/data/mocks";
-import { Location, ServiceCategory } from "./api";
+import { Kpis, Location, ServiceCategory } from "./api";
 
 // // Mock implementation
 // export async function getProducts() {
@@ -40,4 +42,8 @@ export async function getFindInBound(): Promise<Location[]> {
   return new Promise((resolve) => {
     setTimeout(() => resolve(getMapLocations_data), 300);
   });
+}
+
+export async function getKpis(): Promise<Kpis> {
+  return new Promise((resolve) => setTimeout(() => resolve(getKpis_data), 300));
 }

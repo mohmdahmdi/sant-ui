@@ -5,6 +5,7 @@ export interface KpiProps {
   primary?: boolean;
   color?: "primary" | "secondary" | "accent" | "neutral";
   label?: string;
+  dashed?: boolean;
   onClick?: () => void;
   className?: string;
   data: { icon: ReactNode; title: string; description: string }[]; // length should be 4
@@ -16,6 +17,7 @@ export const Kpi = ({
   label,
   className,
   data,
+  dashed,
   ...props
 }: KpiProps) => {
   const bgColor = {
@@ -39,10 +41,15 @@ export const Kpi = ({
     >
       {data.map((item, idx) => (
         <div key={idx} className="flex items-center w-full px-4 gap-x-4">
-          <div className="h-20 w-28 flex items-center justify-center rounded-full mb-4 border-2 border-white text-white">
+          <div
+            className={
+              "w-fit h-fit flex items-center justify-center rounded-full border-2 border-white text-white p-4 " +
+              clsx([dashed && "border-dashed"])
+            }
+          >
             {item.icon}
           </div>
-          <span className="h-24 w-px bg-neutral-300"></span>
+          <span className="h-16 w-px bg-neutral-300"></span>
           <div>
             <p className="font-bold text-md mb-2">{item.title}</p>
             <p className="text-sm opacity-90 leading-relaxed">

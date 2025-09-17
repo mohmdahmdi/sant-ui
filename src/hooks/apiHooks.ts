@@ -83,3 +83,7 @@ export function useLocationsInBound({
     { refetchOnWindowFocus: false }
   );
 }
+
+export function useHeroKpis() {
+  return useApi(["hero-kpis"], () => services.getKpis(), "heroKpis");
+}

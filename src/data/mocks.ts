@@ -70,3 +70,10 @@ export const getMapLocations_data = [
     distance_m: 7329624.60502826,
   },
 ];
+
+export const getKpis_data = {
+  total_customers: "294",
+  total_businesses: "18",
+  total_beauticians: "46",
+  totalActiveAppointments: "1237",
+};

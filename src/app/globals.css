@@ -1,9 +1,20 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Round-Dots/fonts/webfonts/Vazirmatn-RD[wght].woff2")
+      format("woff2 supports variations"),
+    url("https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Round-Dots/fonts/webfonts/Vazirmatn-RD[wght].woff2")
+      format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
   direction: rtl;
+  font-family: Vazirmatn, Courier, monospace;
 }
 
 @theme inline {
@@ -84,6 +95,25 @@
   --color-background: #fafafa;
 
   --color-skeleton: #d9d9d9;
+
+  /* Border Radius */
+  --radius-default: 16px;
+
+  /* Shadows */
+  --shadow-e1: 0px 5px 20px rgba(0, 0, 0, 0.05);
+  --shadow-e2: 0px 5px 20px 2px rgba(37, 51, 141, 0.1);
+  --shadow-e3: 0px 3px 10px rgba(0, 0, 0, 0.15);
+  --shadow-e4: 4px 4px 14px 2px rgba(157, 178, 206, 0.15);
+
+  /* Screens (media queries as custom properties) */
+  --screen-lg: (min-device-width: 1024px);
+  --screen-max-lg: (max-device-width: 1023px);
+  --screen-breakPoint: (min-width: 1200px);
+  --screen-max-breakPoint: (max-width: 1199px);
+  --screen-max-sm: (max-width: 639px);
+  --screen-max-md: (max-width: 767px);
+  --screen-max-xl: (max-width: 1279px);
+  --screen-max-2xl: (max-width: 1535px);
 }
 
 @media (prefers-color-scheme: dark) {

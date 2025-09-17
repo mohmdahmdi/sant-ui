@@ -1,6 +1,6 @@
 "use client";
 
-import { usePopularServiceCategories } from "@/hooks/apiHooks";
+import { useHeroKpis, usePopularServiceCategories } from "@/hooks/apiHooks";
 import FilterIcon from "../assets/svg/FilterIcon";
 import Search from "../stories/Search/Search";
 import CategoryItem from "@/components/CategoryItem";
@@ -13,6 +13,7 @@ import {
   FaUsers,
 } from "react-icons/fa";
 import { Kpi } from "../stories/Kpi/Kpi";
+import { FaNumber } from "@/utils/FaNumber";
 
 const Map = dynamic(() => import("@/components/Map"), {
   ssr: false,
@@ -28,28 +29,29 @@ export default function Home() {
     isErrorPopularCategories,
   } = usePopularServiceCategories(8);
 
+  const { heroKpis, isLoadingHeroKpis, isErrorHeroKpis } = useHeroKpis();
   const isLoading = false;
 
   const kpiData = [
     {
-      icon: <FaChartLine size={32} />,
-      title: "+5000 بیزینس فعال",
-      description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.",
+      icon: <FaChartLine className="w-7 h-7" />,
+      title: `${FaNumber(heroKpis?.total_customers || "", true)} مشتری فعال`,
+      description: `مفتخریم از خدمت به بیش از ${heroKpis?.total_customers} مشتری فعال`,
     },
     {
-      icon: <FaUsers size={32} />,
-      title: "+5000 بیزینس فعال",
-      description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.",
+      icon: <FaUsers className="w-7 h-7" />,
+      title: `${FaNumber(heroKpis?.total_businesses || "", true)} بیزینس فعال`,
+      description: "کسب و کار های فعال در سراسر ایران",
     },
     {
-      icon: <FaDollarSign size={32} />,
-      title: "+5000 بیزینس فعال",
-      description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.",
+      icon: <FaDollarSign className="w-7 h-7" />,
+      title: `${FaNumber(heroKpis?.total_beauticians || "", true)} متخصص زیبایی`,
+      description: "متخصصان زیبایی فعال در زمینه های مختلف",
     },
     {
-      icon: <FaShoppingCart size={32} />,
-      title: "+5000 بیزینس فعال",
-      description: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم.",
+      icon: <FaShoppingCart className="w-7 h-7" />,
+      title: `${FaNumber(heroKpis?.totalActiveAppointments || "", true)} رزرو موفق`,
+      description: "رزرو های موفق درون سامانه",
     },
   ];
   return (
@@ -94,7 +96,7 @@ export default function Home() {
         </div>
 
         {/* Hero Text */}
-        <div className="col-span-4 relative flex flex-col items-center gap-y-4 justify-center">
+        {/*<div className="col-span-4 relative flex flex-col items-center gap-y-4 justify-center">
           <p className="mr-6 text-[29px] leading-snug">
             با{" "}
             <span className="text-secondary-800 text-4xl font-extrabold">
@@ -103,7 +105,7 @@ export default function Home() {
             بهترین ورژن خودتان را به نمایش بگذارید
           </p>
           <HeroIcon className="w-[400px] h-[400px] opacity-90" />
-        </div>
+        </div>*/}
       </section>
 
       <Kpi
@@ -112,6 +114,7 @@ export default function Home() {
         className="w-full"
         label="Quarterly KPIs"
         onClick={() => console.log("KPI clicked!")}
+        dashed={true}
         data={kpiData}
       />
 
