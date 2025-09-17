@@ -51,7 +51,7 @@ export const Kpi = ({
           </div>
           <span className="h-16 w-px bg-neutral-300"></span>
           <div>
-            <p className="font-bold text-md mb-2">{item.title}</p>
+            <p className="font-semibold text-md mb-2">{item.title}</p>
             <p className="text-sm opacity-90 leading-relaxed">
               {item.description}
             </p>

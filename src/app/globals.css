@@ -15,6 +15,7 @@
   --foreground: #171717;
   direction: rtl;
   font-family: Vazirmatn, Courier, monospace;
+  font-weight: 300;
 }
 
 @theme inline {

@@ -118,7 +118,7 @@ export default function Home() {
         data={kpiData}
       />
 
-      <section className="h-[40vh] w-full bg-white shadow-md rounded-2xl mb-6"></section>
+      <section className="h-[40vh] w-full bg-white shadow-e1 rounded-2xl mb-6"></section>
     </main>
   );
 }
