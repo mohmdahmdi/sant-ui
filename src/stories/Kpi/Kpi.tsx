@@ -32,7 +32,7 @@ export const Kpi = ({
   return (
     <div
       className={clsx(
-        "w-full rounded-2xl py-3 px-6 flex justify-between items-center mt-5 mb-5",
+        "w-full rounded-2xl py-3 px-6 flex justify-center items-center mt-5 mb-5",
         bgColor,
         textColor,
         className
@@ -40,17 +40,17 @@ export const Kpi = ({
       {...props}
     >
       {data.map((item, idx) => (
-        <div key={idx} className="flex items-center w-full px-4 gap-x-4">
+        <div key={idx} className="flex items-center w-full px-4 gap-x-4 h-full">
           <div
             className={
-              "w-fit h-fit flex items-center justify-center rounded-full border-2 border-white text-white p-4 " +
+              "w-fit flex items-center justify-center rounded-full border-2 border-white text-white p-4 " +
               clsx([dashed && "border-dashed", primary && "!text-accent-200 !border-accent-200"]) 
             }
           >
             {item.icon}
           </div>
           <span className="h-16 w-px bg-neutral-300"></span>
-          <div>
+          <div className="flex flex-col justify-between h-full">
             <p className="font-semibold text-md mb-2">{item.title}</p>
             <p className="text-sm opacity-90 leading-relaxed">
               {item.description}

@@ -5,8 +5,9 @@ import {
   getKpis_data,
   getMapLocations_data,
   getPopularServiceCategories_data,
+  getTopBusinesses_data,
 } from "@/data/mocks";
-import { Kpis, Location, ServiceCategory } from "./api";
+import { Kpis, Location, ServiceCategory, TopBusinesses } from "./api";
 
 // // Mock implementation
 // export async function getProducts() {
@@ -46,4 +47,10 @@ export async function getFindInBound(): Promise<Location[]> {
 
 export async function getKpis(): Promise<Kpis> {
   return new Promise((resolve) => setTimeout(() => resolve(getKpis_data), 300));
+}
+
+export async function getTopBusinesses(): Promise<TopBusinesses[]> {
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(getTopBusinesses_data), 300)
+  );
 }

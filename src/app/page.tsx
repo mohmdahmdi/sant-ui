@@ -1,6 +1,10 @@
 "use client";
 
-import { useHeroKpis, usePopularServiceCategories } from "@/hooks/apiHooks";
+import {
+  useHeroKpis,
+  usePopularServiceCategories,
+  useTopBusinesses,
+} from "@/hooks/apiHooks";
 import FilterIcon from "../assets/svg/FilterIcon";
 import Search from "../stories/Search/Search";
 import CategoryItem from "@/components/CategoryItem";
@@ -14,6 +18,8 @@ import {
 } from "react-icons/fa";
 import { Kpi } from "../stories/Kpi/Kpi";
 import { FaNumber } from "@/utils/FaNumber";
+import AppOnPhoneIcon from "../assets/svg/AppOnPhoneIcon";
+import RowLine from "../stories/RowLine/RowLine";
 
 const Map = dynamic(() => import("@/components/Map"), {
   ssr: false,
@@ -28,6 +34,9 @@ export default function Home() {
     isLoadingErrorPopularCategories,
     isErrorPopularCategories,
   } = usePopularServiceCategories(8);
+
+  const { topBusinesses, isLoadingTopBusinesses, isErrorTopBusinesses } =
+    useTopBusinesses({ days: 100, limit: 5 });
 
   const { heroKpis, isLoadingHeroKpis, isErrorHeroKpis } = useHeroKpis();
   const isLoading = false;
@@ -104,7 +113,7 @@ export default function Home() {
         </div>
 
         {/* Hero Text */}
-        {/*<div className="col-span-4 relative flex flex-col items-center gap-y-4 justify-center">
+        <div className="col-span-4 relative flex flex-col items-center gap-y-4 justify-center">
           <p className="mr-6 text-[29px] leading-snug">
             با{" "}
             <span className="text-secondary-800 text-4xl font-extrabold">
@@ -113,7 +122,7 @@ export default function Home() {
             بهترین ورژن خودتان را به نمایش بگذارید
           </p>
           <HeroIcon className="w-[400px] h-[400px] opacity-90" />
-        </div>*/}
+        </div>
       </section>
 
       <Kpi
@@ -125,8 +134,21 @@ export default function Home() {
         dashed={true}
         data={kpiData}
       />
+      <section className="flex gap-x-6 items-center pt-2 mb-40">
+        <div>
+          <p>به جمع ارائه دهندگان بپیوندید</p>
+          <AppOnPhoneIcon className="h-[376px] !w-[376px]" />
+        </div>
+        <div className="self-stretch w-full bg-white shadow-e1 rounded-2xl p-7">
+          <h2 className="text-xl">
+            <b className="font-bold text-primary-600">
+              همین حالا بیزنستو ارتقا بده!
+            </b>
+          </h2>
+        </div>
+      </section>
 
-      <section className="h-[40vh] w-full bg-white shadow-e1 rounded-2xl mb-6"></section>
+      <RowLine title="برترین ها" />
     </main>
   );
 }

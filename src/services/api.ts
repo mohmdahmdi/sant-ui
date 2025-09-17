@@ -97,3 +97,26 @@ export async function getKpis(): Promise<Kpis> {
   const { data } = await instance.get("/reports/kpis");
   return data;
 }
+
+export type TopBusinesses = {
+  id: string;
+  name: string;
+  logo: string;
+  cover_image: string;
+  city: string;
+  district: string;
+  total_appointments: string;
+};
+export async function getTopBusinesses({
+  days,
+  limit,
+}: {
+  days?: number;
+  limit?: number;
+}): Promise<TopBusinesses[]> {
+  const { data } = await instance.post("/top-businesses-by-appointments", {
+    days: days,
+    limit: limit,
+  });
+  return data;
+}

@@ -77,3 +77,51 @@ export const getKpis_data = {
   total_beauticians: "46",
   totalActiveAppointments: "1237",
 };
+
+export const getTopBusinesses_data = [
+  {
+    id: "16306df6-7318-4655-a7d0-fe28124ccdaf",
+    name: "آرایشگر حرفه‌ای",
+    logo: "logo3.png",
+    cover_image: "cover3.jpg",
+    city: "شیراز",
+    district: "سعدی",
+    total_appointments: "1",
+  },
+  {
+    id: "f224e83e-e8d3-4650-b43b-bf59e62799a6",
+    name: "سالن آرایش مو",
+    logo: "logo1.png",
+    cover_image: "cover1.jpg",
+    city: "تبریز",
+    district: "راه آهن",
+    total_appointments: "1",
+  },
+  {
+    id: "374cc8f7-3aa8-4dc7-b480-f2393a7daea7",
+    name: "استودیو ناخن",
+    logo: "logo2.png",
+    cover_image: "cover2.jpg",
+    city: "مشهد",
+    district: "رضا",
+    total_appointments: "1",
+  },
+  {
+    id: "f224e83e-e8d3-4650-b43b-bf59e62799a6",
+    name: "سالن آرایش مو",
+    logo: "logo1.png",
+    cover_image: "cover1.jpg",
+    city: "تبریز",
+    district: "راه آهن",
+    total_appointments: "1",
+  },
+  {
+    id: "374cc8f7-3aa8-4dc7-b480-f2393a7daea7",
+    name: "استودیو ناخن",
+    logo: "logo2.png",
+    cover_image: "cover2.jpg",
+    city: "مشهد",
+    district: "رضا",
+    total_appointments: "1",
+  },
+];
