@@ -12,7 +12,7 @@ export interface KpiProps {
 }
 
 export const Kpi = ({
-  primary = false,
+  primary = true,
   color = "primary",
   label,
   className,
@@ -44,7 +44,7 @@ export const Kpi = ({
           <div
             className={
               "w-fit h-fit flex items-center justify-center rounded-full border-2 border-white text-white p-4 " +
-              clsx([dashed && "border-dashed"])
+              clsx([dashed && "border-dashed", primary && "!text-accent-200 !border-accent-200"]) 
             }
           >
             {item.icon}

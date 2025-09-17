@@ -36,7 +36,9 @@ export default function Home() {
     {
       icon: <FaChartLine className="w-7 h-7" />,
       title: `${FaNumber(heroKpis?.total_customers || "", true)} مشتری فعال`,
-      description: `مفتخریم از خدمت به بیش از ${heroKpis?.total_customers} مشتری فعال`,
+      description: `مفتخریم از خدمت به بیش از ${FaNumber(
+        heroKpis?.total_customers || ""
+      )} مشتری فعال`,
     },
     {
       icon: <FaUsers className="w-7 h-7" />,
@@ -45,12 +47,18 @@ export default function Home() {
     },
     {
       icon: <FaDollarSign className="w-7 h-7" />,
-      title: `${FaNumber(heroKpis?.total_beauticians || "", true)} متخصص زیبایی`,
+      title: `${FaNumber(
+        heroKpis?.total_beauticians || "",
+        true
+      )} متخصص زیبایی`,
       description: "متخصصان زیبایی فعال در زمینه های مختلف",
     },
     {
       icon: <FaShoppingCart className="w-7 h-7" />,
-      title: `${FaNumber(heroKpis?.totalActiveAppointments || "", true)} رزرو موفق`,
+      title: `${FaNumber(
+        heroKpis?.totalActiveAppointments || "",
+        true
+      )} رزرو موفق`,
       description: "رزرو های موفق درون سامانه",
     },
   ];
