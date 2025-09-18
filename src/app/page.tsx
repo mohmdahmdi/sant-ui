@@ -1,15 +1,7 @@
-"use client";
-
-import {
-  useHeroKpis,
-  usePopularServiceCategories,
-  useTopBusinesses,
-} from "@/hooks/apiHooks";
 import FilterIcon from "../assets/svg/FilterIcon";
 import Search from "../stories/Search/Search";
 import CategoryItem from "@/components/CategoryItem";
 import HeroIcon from "../assets/svg/HeroIcon";
-import dynamic from "next/dynamic";
 import {
   FaChartLine,
   FaDollarSign,
@@ -20,25 +12,19 @@ import { Kpi } from "../stories/Kpi/Kpi";
 import { FaNumber } from "@/utils/FaNumber";
 import AppOnPhoneIcon from "../assets/svg/AppOnPhoneIcon";
 import RowLine from "../stories/RowLine/RowLine";
+import services from "@/services";
+import MapClient from "@/components/Map";
 
-const Map = dynamic(() => import("@/components/Map"), {
-  ssr: false,
-  loading: () => (
-    <p className="h-96 flex items-center justify-center">Loading map...</p>
-  ),
-});
+export default async function Home() {
+  const popularCategories = await services.getServiceCategories(8);
 
-export default function Home() {
-  const {
-    popularCategories,
-    isLoadingErrorPopularCategories,
-    isErrorPopularCategories,
-  } = usePopularServiceCategories(8);
+  const topBusinesses = await services.getTopBusinesses({
+    days: 100,
+    limit: 5,
+  });
 
-  const { topBusinesses, isLoadingTopBusinesses, isErrorTopBusinesses } =
-    useTopBusinesses({ days: 100, limit: 5 });
+  const heroKpis = await services.getKpis();
 
-  const { heroKpis, isLoadingHeroKpis, isErrorHeroKpis } = useHeroKpis();
   const isLoading = false;
 
   const kpiData = [
@@ -82,7 +68,7 @@ export default function Home() {
             <span className="h-px w-full bg-gray-300" />
             <FilterIcon />
           </div>
-          <Search placeHolder="جستجو..." value="" onChange={(text) => {}} />
+          <Search placeHolder="جستجو..." value="" />
         </div>
 
         {/* Categories + Map */}
@@ -108,7 +94,7 @@ export default function Home() {
             </div>
           )}
           <div className="flex-1 bg-white rounded-2xl shadow-md p-3">
-            <Map />
+            <MapClient />
           </div>
         </div>
 
@@ -130,10 +116,18 @@ export default function Home() {
         color="primary"
         className="w-full"
         label="Quarterly KPIs"
-        onClick={() => console.log("KPI clicked!")}
         dashed={true}
         data={kpiData}
       />
+
+      <RowLine title="برترین ها" className="mt-2" />
+
+      <section>
+        {topBusinesses?.map((item, index) => (
+          <div key={"business-idx-" + index}>{item.name}</div>
+        ))}
+      </section>
+
       <section className="flex gap-x-6 items-center pt-2 mb-40">
         <div>
           <p>به جمع ارائه دهندگان بپیوندید</p>
@@ -147,8 +141,6 @@ export default function Home() {
           </h2>
         </div>
       </section>
-
-      <RowLine title="برترین ها" />
     </main>
   );
 }

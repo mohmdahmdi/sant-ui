@@ -1,19 +1,27 @@
 import cookieManager from "@/utils/cookieManager";
 import localStorageManager from "@/utils/localStorageManager";
-import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from "axios";
+import axios, {
+  AxiosError,
+  AxiosInstance,
+  InternalAxiosRequestConfig,
+} from "axios";
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3003";
+export const API_URL = process.env.REACT_APP_API_URL || "http://localhost:3003";
+export const headers = {
+  "Content-type": "application/json",
+};
 
 const instance: AxiosInstance = axios.create({
   baseURL: API_URL,
-  headers: {
-    "Content-type": "application/json",
-  },
+  headers,
   timeout: 10000,
 });
 
 const getToken = (): string | null => {
-  if (process.env.NODE_ENV === "development" && process.env.REACT_APP_DEVELOPMENT_TOKEN) {
+  if (
+    process.env.NODE_ENV === "development" &&
+    process.env.REACT_APP_DEVELOPMENT_TOKEN
+  ) {
     return process.env.REACT_APP_DEVELOPMENT_TOKEN;
   }
   return cookieManager.get("authToken") || localStorageManager.get("authToken");
@@ -23,7 +31,7 @@ const applyRequestInterceptor = (instance: AxiosInstance) => {
   instance.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
       // Skip auth for auth endpoints
-      if (config.url?.includes('/auth/')) {
+      if (config.url?.includes("/auth/")) {
         return config;
       }
 
@@ -56,8 +64,8 @@ const applyResponseInterceptor = (instance: AxiosInstance) => {
         case 401:
           cookieManager.remove("authToken");
           localStorageManager.remove("authToken");
-          if (typeof window !== 'undefined') {
-            window.location.href = '/login';
+          if (typeof window !== "undefined") {
+            window.location.href = "/login";
           }
           break;
 

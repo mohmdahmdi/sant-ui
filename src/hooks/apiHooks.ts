@@ -88,16 +88,3 @@ export function useHeroKpis() {
   return useApi(["hero-kpis"], () => services.getKpis(), "heroKpis");
 }
 
-export function useTopBusinesses({
-  days,
-  limit,
-}: {
-  days?: number;
-  limit?: number;
-}) {
-  return useApi(
-    ["top-businesses", days || 100, limit || 5],
-    () => services.getTopBusinesses({ days, limit }),
-    "topBusinesses"
-  );
-}
