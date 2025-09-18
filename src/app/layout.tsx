@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ReactQueryProvider from "../providers/ReactQueryProvider";
 import Navbar from "../components/Navbar";
+import Footer from "@/components/Footer";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -46,6 +47,7 @@ export default function RootLayout({
       <body className={`${geistMono.variable} ${roboto.variable} antialiased`}>
         <Navbar />
         <ReactQueryProvider>{children}</ReactQueryProvider>
+        <Footer />
       </body>
     </html>
   );
