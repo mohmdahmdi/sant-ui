@@ -1,4 +1,4 @@
-import instance from "@/lib/AxiosConfig";
+import instance, { API_URL } from "@/lib/AxiosConfig";
 import { headers } from "../lib/AxiosConfig";
 
 export type credential = {
@@ -43,9 +43,12 @@ export type ServiceCategory = {
 export async function getServiceCategories(
   limit?: number
 ): Promise<ServiceCategory[]> {
-  const res = await fetch(`/services/most-popular-categories/${limit}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    API_URL + `/services/most-popular-categories/${limit}`,
+    {
+      cache: "no-store",
+    }
+  );
   return res.json();
 }
 
@@ -95,7 +98,7 @@ export type Kpis = {
   totalActiveAppointments: string;
 };
 export async function getKpis(): Promise<Kpis> {
-  const res = await fetch("/reports/kpis", { cache: "no-store" });
+  const res = await fetch(API_URL + "/reports/kpis", { cache: "no-store" });
   return res.json();
 }
 
@@ -115,7 +118,7 @@ export async function getTopBusinesses({
   days?: number;
   limit?: number;
 }): Promise<TopBusinesses[]> {
-  const res = await fetch("/top-businesses-by-appointments", {
+  const res = await fetch(API_URL + "/business/top-businesses-by-appointments", {
     method: "POST",
     headers,
     body: JSON.stringify({

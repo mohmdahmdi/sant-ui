@@ -100,14 +100,16 @@ export default async function Home() {
 
         {/* Hero Text */}
         <div className="col-span-4 relative flex flex-col items-center gap-y-4 justify-center">
-          <p className="mr-6 text-[29px] leading-snug">
+          <header className="mr-6 text-[29px] leading-snug">
             با{" "}
-            <span className="text-secondary-800 text-4xl font-extrabold">
+            <h1 className="text-secondary-800 text-4xl font-extrabold inline">
               سانتال!
-            </span>{" "}
+            </h1>{" "}
             بهترین ورژن خودتان را به نمایش بگذارید
-          </p>
-          <HeroIcon className="w-[400px] h-[400px] opacity-90" />
+          </header>
+          <figure>
+            <HeroIcon className="w-[400px] h-[400px] opacity-90" />
+          </figure>
         </div>
       </section>
 
@@ -130,8 +132,10 @@ export default async function Home() {
 
       <section className="flex gap-x-6 items-center pt-2 mb-40">
         <div>
-          <p>به جمع ارائه دهندگان بپیوندید</p>
-          <AppOnPhoneIcon className="h-[376px] !w-[376px]" />
+          <header>به جمع ارائه دهندگان بپیوندید</header>
+          <figure>
+            <AppOnPhoneIcon className="h-[376px] !w-[376px]" />
+          </figure>
         </div>
         <div className="self-stretch w-full bg-white shadow-e1 rounded-2xl p-7">
           <h2 className="text-xl">
