@@ -125,3 +125,34 @@ export const getTopBusinesses_data = [
     total_appointments: "1",
   },
 ];
+
+export const getBeauticanInfo_data = {
+  id: "09fd5796-5d7d-4933-a96a-a9739cfe1e81",
+  user_id: "57e63a79-f4ed-4009-a133-607adb409407",
+  business_id: "16306df6-7318-4655-a7d0-fe28124ccdaf",
+  bio: "Experienced professional makeup artist for weddings, photo shoots, and events.",
+  experience_years: 8,
+  specialties: ["Makeup", "Bridal", "Event Styling"],
+  is_freelancer: false,
+  rating: "4.9",
+};
+
+export const getBusinessInfo_data = {
+  id: "f224e83e-e8d3-4650-b43b-bf59e62799a6",
+  owner_id: "057dc2bf-8b68-4706-8cb1-d3f16d5ac200",
+  name: "سالن آرایش مو",
+  description: "خدمات مربوط به کوتاهی، آرایش و مراقبت مو.",
+  logo: "logo1.png",
+  cover_image: "cover1.jpg",
+  location_id: "09760e48-2a35-465d-8b58-93b0d6999892",
+  business_type_id: "0eba2db0-d524-4afe-b171-a1e865252a4f",
+  phone: "041-12345678",
+  email: "hair_salon@example.com",
+  website: "http://hair-salon.example.com",
+  instagram: "@hairsalon",
+  whatsapp: "09121234565",
+  rating: "4.5",
+  is_verified: true,
+  is_active: true,
+  created_at: "2025-08-24T13:33:59.406Z",
+};

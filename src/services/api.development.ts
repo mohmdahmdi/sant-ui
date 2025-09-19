@@ -2,12 +2,19 @@ import { Kpi } from "./../stories/Kpi/Kpi";
 // import { productsMock } from "@/db/products";
 
 import {
+  getBeauticanInfo_data,
   getKpis_data,
   getMapLocations_data,
   getPopularServiceCategories_data,
   getTopBusinesses_data,
 } from "@/data/mocks";
-import { Kpis, Location, ServiceCategory, TopBusinesses } from "./api";
+import {
+  BeauticianInfo,
+  Kpis,
+  Location,
+  ServiceCategory,
+  TopBusinesses,
+} from "./api";
 
 // // Mock implementation
 // export async function getProducts() {
@@ -52,5 +59,17 @@ export async function getKpis(): Promise<Kpis> {
 export async function getTopBusinesses(): Promise<TopBusinesses[]> {
   return new Promise((resolve) =>
     setTimeout(() => resolve(getTopBusinesses_data), 300)
+  );
+}
+
+export async function getBeauticianInfo(): Promise<BeauticianInfo> {
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(getBeauticanInfo_data), 300)
+  );
+}
+
+export async function getBusinessInfo(): Promise<BeauticianInfo> {
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(getBeauticanInfo_data), 300)
   );
 }

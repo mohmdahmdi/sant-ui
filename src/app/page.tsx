@@ -14,6 +14,7 @@ import AppOnPhoneIcon from "../assets/svg/AppOnPhoneIcon";
 import RowLine from "../stories/RowLine/RowLine";
 import services from "@/services";
 import MapClient from "@/components/Map";
+import TopbusinessCard from "@/components/TopbusinessCard";
 
 export default async function Home() {
   const popularCategories = await services.getServiceCategories(8);
@@ -124,9 +125,9 @@ export default async function Home() {
 
       <RowLine title="برترین ها" className="mt-2" />
 
-      <section>
+      <section className=" flex">
         {topBusinesses?.map((item, index) => (
-          <div key={"business-idx-" + index}>{item.name}</div>
+          <TopbusinessCard key={"top-business-idx-" + index} data = {item}/>
         ))}
       </section>
 

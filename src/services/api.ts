@@ -118,15 +118,65 @@ export async function getTopBusinesses({
   days?: number;
   limit?: number;
 }): Promise<TopBusinesses[]> {
-  const res = await fetch(API_URL + "/business/top-businesses-by-appointments", {
-    method: "POST",
-    headers,
-    body: JSON.stringify({
-      days,
-      limit,
-    }),
-    next: { revalidate: 60 * 60 * 24 },
+  const res = await fetch(
+    API_URL + "/business/top-businesses-by-appointments",
+    {
+      method: "POST",
+      headers,
+      body: JSON.stringify({
+        days,
+        limit,
+      }),
+      next: { revalidate: 60 * 60 * 24 },
+    }
+  );
+  const data = await res.json();
+  return data;
+}
+
+export type BeauticianInfo = {
+  id: string;
+  user_id: string;
+  business_id: string;
+  bio: string;
+  experience_years: number;
+  specialties: string[];
+  is_freelancer: boolean;
+  rating: string;
+};
+export async function getBeauticianInfo(id: string): Promise<BeauticianInfo> {
+  const res = await fetch(API_URL + `/beauticians/${id}`, {
+    next: { revalidate: 60 * 30 },
   });
   const data = await res.json();
+
+  return data;
+}
+
+export type BusinessInfo = {
+  id: string;
+  owner_id: string;
+  name: string;
+  description: string;
+  logo: string;
+  cover_image: string;
+  location_id: string;
+  business_type_id: string;
+  phone: string;
+  email: string;
+  website: string;
+  instagram: string;
+  whatsapp: string;
+  rating: string;
+  is_verified: boolean;
+  is_active: boolean;
+  created_at: string;
+};
+export async function getBusinessInfo(id: string): Promise<BusinessInfo> {
+  const res = await fetch(API_URL + `/business/${id}`, {
+    next: { revalidate: 60 * 30 },
+  });
+  const data = await res.json();
+
   return data;
 }
