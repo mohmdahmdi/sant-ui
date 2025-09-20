@@ -156,3 +156,17 @@ export const getBusinessInfo_data = {
   is_active: true,
   created_at: "2025-08-24T13:33:59.406Z",
 };
+
+export const getServiceInfo_data = {
+  id: "ad06ff3d-491f-48de-ae6a-72ff932ddb3c",
+  business_id: "16306df6-7318-4655-a7d0-fe28124ccdaf",
+  category_id: "788f0b0c-d00f-4c3e-be73-50e167e6de76",
+  title: "Bridal Makeup & Hair",
+  description: "Complete bridal look with hair and makeup services.",
+  price: "800000.00",
+  duration_minutes: 180,
+  image: "bridal1.jpg",
+  gender_target: "female",
+  is_active: true,
+  rating: "0.0",
+};

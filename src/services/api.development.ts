@@ -1,11 +1,9 @@
-import { Kpi } from "./../stories/Kpi/Kpi";
-// import { productsMock } from "@/db/products";
-
 import {
   getBeauticanInfo_data,
   getKpis_data,
   getMapLocations_data,
   getPopularServiceCategories_data,
+  getServiceInfo_data,
   getTopBusinesses_data,
 } from "@/data/mocks";
 import {
@@ -13,24 +11,9 @@ import {
   Kpis,
   Location,
   ServiceCategory,
+  ServiceInfo,
   TopBusinesses,
 } from "./api";
-
-// // Mock implementation
-// export async function getProducts() {
-//   // mimic async API call
-//   return new Promise((resolve) => {
-//     setTimeout(() => resolve(productsMock), 300);
-//   });
-// }
-
-// export async function getProduct(id: string) {
-//   return new Promise((resolve, reject) => {
-//     const product = productsMock.find((p) => p.id === id);
-//     if (product) setTimeout(() => resolve(product), 300);
-//     else reject(new Error("Product not found"));
-//   });
-// }
 
 export async function getServiceCategories(
   limit: number
@@ -71,5 +54,11 @@ export async function getBeauticianInfo(): Promise<BeauticianInfo> {
 export async function getBusinessInfo(): Promise<BeauticianInfo> {
   return new Promise((resolve) =>
     setTimeout(() => resolve(getBeauticanInfo_data), 300)
+  );
+}
+
+export async function getServiceInfo(): Promise<ServiceInfo> {
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(getServiceInfo_data), 300)
   );
 }

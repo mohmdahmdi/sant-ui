@@ -180,3 +180,26 @@ export async function getBusinessInfo(id: string): Promise<BusinessInfo> {
 
   return data;
 }
+
+export type ServiceInfo = {
+  id: string;
+  business_id: string;
+  category_id: string;
+  title: string;
+  description: string;
+  price: string;
+  duration_minutes: number;
+  image: string;
+  gender_target: string;
+  is_active: boolean;
+  rating: string;
+};
+
+export async function getServiceInfo(id: string): Promise<ServiceInfo> {
+  const res = await fetch(API_URL + `/services/${id}`, {
+    next: { revalidate: 30 * 60 },
+  });
+  const data = await res.json();
+
+  return data;
+}
