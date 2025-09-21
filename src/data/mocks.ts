@@ -170,3 +170,55 @@ export const getServiceInfo_data = {
   is_active: true,
   rating: "0.0",
 };
+
+export const getServicesByBusinessId_data = [
+  {
+    id: "ae1e3ed8-f3bc-4042-a337-67d581d64dcc",
+    business_id: "f224e83e-e8d3-4650-b43b-bf59e62799a6",
+    category_id: "fa09405d-fc5b-4897-8521-c55d3034d185",
+    title: "Classic Haircut",
+    description: "Professional haircut tailored to your style.",
+    price: "150000.00",
+    duration_minutes: 45,
+    image: "haircut1.jpg",
+    gender_target: "all",
+    is_active: true,
+    rating: "0.0",
+  },
+  {
+    id: "5ad7d9cd-f9f8-4169-844c-e6da2c0b3d2d",
+    business_id: "f224e83e-e8d3-4650-b43b-bf59e62799a6",
+    category_id: "86f3cca9-6ed2-43be-b643-a7bbe1e99e68",
+    title: "Full Hair Coloring",
+    description: "Color your hair with professional products and techniques.",
+    price: "400000.00",
+    duration_minutes: 90,
+    image: "haircolor1.jpg",
+    gender_target: "all",
+    is_active: true,
+    rating: "0.0",
+  },
+];
+
+export const getBeauticiansByBusinessId_data = [
+  {
+    id: "95543895-9c18-4fd2-a9cd-be19322ca686",
+    bio: "Certified hairstylist specializing in cutting, coloring, and hair treatments.",
+    experience_years: 10,
+    rating: "4.7",
+    specialties: ["Haircut", "Hair Coloring", "Hair Treatment"],
+    user_id: "057dc2bf-8b68-4706-8cb1-d3f16d5ac200",
+    profile_picture: null,
+    full_name: "Sasan Beyranvand",
+  },
+  {
+    id: "95543895-9c18-4fd2-a9cd-be19322ca686",
+    bio: "Certified hairstylist specializing in cutting, coloring, and hair treatments.",
+    experience_years: 10,
+    rating: "4.7",
+    specialties: ["Haircut", "Hair Coloring", "Hair Treatment"],
+    user_id: "057dc2bf-8b68-4706-8cb1-d3f16d5ac200",
+    profile_picture: null,
+    full_name: "Sasan Beyranvand",
+  },
+];

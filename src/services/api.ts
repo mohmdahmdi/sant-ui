@@ -146,7 +146,7 @@ export type BeauticianInfo = {
 };
 export async function getBeauticianInfo(id: string): Promise<BeauticianInfo> {
   const res = await fetch(API_URL + `/beauticians/${id}`, {
-    next: { revalidate: 60 * 30 },
+    next: { revalidate: 60 },
   });
   const data = await res.json();
 
@@ -174,7 +174,7 @@ export type BusinessInfo = {
 };
 export async function getBusinessInfo(id: string): Promise<BusinessInfo> {
   const res = await fetch(API_URL + `/business/${id}`, {
-    next: { revalidate: 60 * 30 },
+    next: { revalidate: 60 },
   });
   const data = await res.json();
 
@@ -201,5 +201,38 @@ export async function getServiceInfo(id: string): Promise<ServiceInfo> {
   });
   const data = await res.json();
 
+  return data;
+}
+
+export async function getServicesByBusinessId(
+  businessId: string
+): Promise<ServiceInfo[]> {
+  const res = await fetch(
+    API_URL + `/services/services-by-business/${businessId}`,
+    { next: { revalidate: 60 } }
+  );
+
+  const data = await res.json();
+  return data;
+}
+
+export type BeauticianByBusiness = {
+  id: string;
+  bio: string;
+  experience_years: number;
+  rating: string;
+  specialties: string[];
+  user_id: string;
+  profile_picture: string | null;
+  full_name: string;
+};
+export async function getBeauticiansByBusinessId(
+  businessId: string
+): Promise<BeauticianByBusiness[]> {
+  const res = await fetch(API_URL + `/beauticians/by-business/${businessId}`, {
+    next: { revalidate: 60 },
+  });
+
+  const data = await res.json();
   return data;
 }

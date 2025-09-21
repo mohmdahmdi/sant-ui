@@ -1,7 +1,13 @@
 import services from "@/services";
 import React from "react";
+import BusinessBeauticians from "./BusinessBeauticians";
+import BusinessServices from "./BusinessServices";
 
-const Page = async ({ params }: { params: { id: string; slug?: string[] } }) => {
+const Page = async ({
+  params,
+}: {
+  params: { id: string; slug?: string[] };
+}) => {
   const resolvedParams = await params;
   const { id, slug = [] } = resolvedParams;
 
@@ -16,17 +22,17 @@ const Page = async ({ params }: { params: { id: string; slug?: string[] } }) => 
 
   switch (slug.join("/")) {
     case "":
-      content = (
-        <div className="p-6">محتوای خدمات برای کسب‌وکار #{params.id}</div>
-      );
+      content = <BusinessServices businessId={params.id} />;
       break;
     case "about":
       content = (
-        <div className="p-6">محتوای درباره ما برای کسب‌وکار #{businessInfo?.description}</div>
+        <div className="p-6">
+          محتوای درباره ما برای کسب‌وکار #{businessInfo?.description}
+        </div>
       );
       break;
     case "staff":
-      content = <div className="p-6">لیست کارکنان کسب‌وکار #{params.id}</div>;
+      content = <BusinessBeauticians businessId={params.id} />;
       break;
     case "reviews":
       content = (
