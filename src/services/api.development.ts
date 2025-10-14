@@ -1,12 +1,15 @@
 import {
   getBeauticanInfo_data,
+  getBeauticiansByBusinessId_data,
   getKpis_data,
   getMapLocations_data,
   getPopularServiceCategories_data,
   getServiceInfo_data,
+  getServicesByBusinessId_data,
   getTopBusinesses_data,
 } from "@/data/mocks";
 import {
+  BeauticianByBusiness,
   BeauticianInfo,
   Kpis,
   Location,
@@ -60,5 +63,19 @@ export async function getBusinessInfo(): Promise<BeauticianInfo> {
 export async function getServiceInfo(): Promise<ServiceInfo> {
   return new Promise((resolve) =>
     setTimeout(() => resolve(getServiceInfo_data), 300)
+  );
+}
+
+export async function getServicesByBusinessId(): Promise<ServiceInfo[]> {
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(getServicesByBusinessId_data), 300)
+  );
+}
+
+export async function getBeauticiansByBusinessId(): Promise<
+  BeauticianByBusiness[]
+> {
+  return new Promise((resolve) =>
+    setTimeout(() => resolve(getBeauticiansByBusinessId_data), 300)
   );
 }
