@@ -22,7 +22,7 @@ const Page = async ({ params }: { params: { id: string; slug?: string[] } }) => 
       break;
     case "about":
       content = (
-        <div className="p-6">محتوای درباره ما برای کسب‌وکار #{businessInfo?.description}</div>
+        <div className="p-6">محتوای درباره ما برای کسب‌وکار #{businessInfo?.description} ---  {businessInfo?.name} --- </div>
       );
       break;
     case "staff":

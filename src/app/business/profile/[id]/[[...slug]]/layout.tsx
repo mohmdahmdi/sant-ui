@@ -1,3 +1,5 @@
+import services from "@/services";
+import { BusinessBannerImage, BusinessIcon } from "@/utils/imageLoader";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 
@@ -6,9 +8,11 @@ interface LayoutProps {
   params: { id: string; slug?: string[] };
 }
 
-const Layout = ({ children, params }: LayoutProps) => {
+const Layout = async ({ children, params }: LayoutProps) => {
   const businessId = params.id;
   const currentSlug = params.slug || [];
+
+  const businessInfo = await services.getBusinessInfo(businessId);
 
   const isActive = (tabKey: string[]) => {
     if (currentSlug.length === 0 && tabKey.length === 0) return true;
@@ -45,10 +49,16 @@ const Layout = ({ children, params }: LayoutProps) => {
 
   return (
     <div>
-      <div className="bg-skeleton w-full h-[200px]"></div>
+      <div className="w-full h-[200px] relative overflow-hidden">
+        <BusinessBannerImage src={businessInfo.cover_image} />
+        <div className="absolute inset-0 backdrop-blur-xs brightness-50" />
+      </div>
+
       <div className="relative flex border-b border-skeleton">
-        <div className="w-fit h-fit p-2 bg-background rounded-full absolute -top-[300%] right-[3%]">
-          <div className="w-52 h-52 bg-skeleton rounded-full"></div>
+        <div className="w-fit h-fit p-2 bg-background rounded-full absolute -top-[300%] right-[3%] shadow-e1">
+          <div className="w-52 h-52 rounded-full">
+            <BusinessIcon src={businessInfo.logo} name={businessInfo.name} />
+          </div>
         </div>
         <nav className="flex gap-x-20 mr-[23%] py-3 text-neutral-700 font-[420]">
           {tabs.map((tab) => (

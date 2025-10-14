@@ -143,3 +143,7 @@ body {
 .ltr {
   direction: ltr !important;
 }
+
+.rtl {
+  direction: rtl !important;
+}

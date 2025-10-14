@@ -4,13 +4,29 @@ import { useEffect, useRef, useState } from "react";
 import {
   MapContainer,
   TileLayer,
-  Marker,
-  Popup,
   useMapEvents,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useLocationsInBound } from "@/hooks/apiHooks";
+import BusinessMarker from "./bunsinessMarker";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: "/leaflet/images/marker-icon-2x.png",
+  iconUrl: "/leaflet/images/marker-icon.png",
+  shadowUrl: "/leaflet/images/marker-shadow.png",
+});
+
+// ✅ custom icon for your locations
+const customMarkerIcon = new L.Icon({
+  iconUrl: "/icons/MapMarkerIcon.svg",
+  iconSize: [24, 24],
+  iconAnchor: [16, 32],
+  popupAnchor: [0, -32],
+});
 
 function MapEventHandler({
   onBoundsChange,
@@ -105,18 +121,13 @@ export default function Map() {
 
         <MapEventHandler onBoundsChange={handleBoundsChange} />
 
-        {locationsInBound?.map((loc) => (
-          <Marker
-            key={loc.id || `${loc.latitude}-${loc.longitude}`}
-            position={[Number(loc.latitude), Number(loc.longitude)]}
-          >
-            <Popup>{loc.name || "Unnamed Location"}</Popup>
-          </Marker>
+        {locationsInBound?.map((loc, idx) => (
+          <BusinessMarker
+            key={`${loc.id}-${idx}`}
+            loc={loc}
+            icon={customMarkerIcon}
+          />
         ))}
-
-        <Marker position={[35.7219, 51.3347]}>
-          <Popup>Initial Center</Popup>
-        </Marker>
       </MapContainer>
 
       {/* Status overlay */}

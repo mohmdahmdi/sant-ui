@@ -1,5 +1,6 @@
 import instance, { API_URL } from "@/lib/AxiosConfig";
 import { headers } from "../lib/AxiosConfig";
+import { LocationPopupData } from "@/components/Map/bunsinessMarker";
 
 export type credential = {
   full_name: string;
@@ -81,7 +82,7 @@ export async function getFindInBound(
   swLng: number,
   neLat: number,
   neLng: number
-): Promise<Location[]> {
+): Promise<LocationPopupData[]> {
   const { data } = await instance.post("/geographics/in-bounds", {
     swLat,
     swLng,
