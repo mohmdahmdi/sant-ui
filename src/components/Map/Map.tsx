@@ -1,11 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  useMapEvents,
-} from "react-leaflet";
+import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { useLocationsInBound } from "@/hooks/apiHooks";
@@ -116,9 +112,8 @@ export default function Map() {
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          url="https://tiles.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"
         />
-
         <MapEventHandler onBoundsChange={handleBoundsChange} />
 
         {locationsInBound?.map((loc, idx) => (

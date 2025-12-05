@@ -108,9 +108,13 @@ export type TopBusinesses = {
   name: string;
   logo: string;
   cover_image: string;
+  website: string;
+  is_verified: boolean;
+  rating: string;
   city: string;
+  address: string;
   district: string;
-  total_appointments: string;
+  total_appointments: number;
 };
 export async function getTopBusinesses({
   days,

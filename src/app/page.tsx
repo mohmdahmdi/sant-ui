@@ -18,9 +18,9 @@ import TopbusinessCard from "@/components/TopbusinessCard";
 
 export default async function Home() {
   const popularCategories = await services.getServiceCategories(8);
-
+  const days = 100
   const topBusinesses = await services.getTopBusinesses({
-    days: 100,
+    days,
     limit: 5,
   });
 
@@ -60,9 +60,7 @@ export default async function Home() {
   ];
   return (
     <main className="container mx-auto px-6">
-      {/* Hero Section */}
       <section className="grid grid-cols-12 gap-6 h-[85vh] items-stretch pb-2">
-        {/* Filters */}
         <div className="col-span-3 bg-white shadow-md rounded-2xl p-6 flex flex-col">
           <div className="flex items-center gap-2 mb-4">
             <p className="text-sm text-primary-800 font-bold">فیلترها</p>
@@ -72,7 +70,6 @@ export default async function Home() {
           <Search placeHolder="جستجو..." value="" />
         </div>
 
-        {/* Categories + Map */}
         <div className="col-span-5 flex flex-col">
           {isLoading ? null : (
             <div className="w-full overflow-hidden mb-4">
@@ -99,7 +96,6 @@ export default async function Home() {
           </div>
         </div>
 
-        {/* Hero Text */}
         <div className="col-span-4 relative flex flex-col items-center gap-y-4 justify-center">
           <header className="mr-6 text-[29px] leading-snug">
             با{" "}
@@ -123,11 +119,11 @@ export default async function Home() {
         data={kpiData}
       />
 
-      <RowLine title="برترین ها" className="mt-2" />
+      <RowLine title="برترین ها" className="" />
 
-      <section className=" flex">
+      <section className="grid grid-cols-10 mt-6">
         {topBusinesses?.map((item, index) => (
-          <TopbusinessCard key={"top-business-idx-" + index} data = {item}/>
+          <TopbusinessCard key={"top-business-idx-" + index} data={item} days={days} />
         ))}
       </section>
 
