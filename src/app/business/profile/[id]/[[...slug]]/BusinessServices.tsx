@@ -6,7 +6,13 @@ const BusinessServices = async ({ businessId }: { businessId: string }) => {
   return (
     <div>
       {data.map((item, idx) => (
-        <div key={`business-service-${idx}`}>{item.duration_minutes}</div>
+        <div key={`business-service-${idx}`} className="flex">
+          <span>{item.title}</span>
+          <span>{item.price}</span>
+          <span>{item.gender_target}</span>
+          <span>{item.rating}</span>
+          <span></span>
+        </div>
       ))}
     </div>
   );

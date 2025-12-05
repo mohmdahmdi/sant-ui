@@ -127,9 +127,9 @@ export default async function Home() {
         ))}
       </section>
 
-      <section className="flex gap-x-6 items-center pt-2 mb-40">
+      <section className="flex gap-x-6 items-center pt-2 mb-40 mt-6">
         <div>
-          <header>به جمع ارائه دهندگان بپیوندید</header>
+          <header className="text-3xl font-extrabold text-secondary-900">به جمع ارائه دهندگان بپیوندید</header>
           <figure>
             <AppOnPhoneIcon className="h-[376px] !w-[376px]" />
           </figure>

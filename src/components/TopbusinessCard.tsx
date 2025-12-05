@@ -16,9 +16,9 @@ const TopbusinessCard = ({
   days: number;
 }) => {
   return (
-    <div className="rounded-2xl bg-white mx-4 overflow-hidden col-span-2">
+    <div className="rounded-2xl bg-white mx-4 overflow-hidden col-span-2 shadow-e1 hover:shadow-e3 transition-all ease-in-out duration-400">
       <div className="bg-skeleton w-full h-[200px] relative">
-        <div className="absolute left-2 top-2">
+        <div className="absolute left-2 top-2 bg-white rounded-full p-[1px]">
           {data.is_verified && (
             <RiVerifiedBadgeFill className="text-secondary-800" size={20} />
           )}
@@ -81,13 +81,11 @@ const TopbusinessCard = ({
         {/* <div className="h-[1px] w-full bg-neutral-200 mt-3"></div> */}
         <Link
           href={"/business/profile/" + data.id}
-          className="flex justify-between items-center px-1 mt-4 text-neutral-600 hover:cursor-pointer hover:text-secondary-800"
+          className="flex justify-between items-center px-1 mt-4 text-neutral-600 hover:cursor-pointer
+                   hover:text-secondary-800! hover:font-medium transition-all ease-in-out duration-400"
         >
           <p>مشاهده صفحه کسب و کار</p>
-          <FaArrowLeftLong
-            className="text-gray-500 hover:text-secondary-800"
-            size={20}
-          />
+          <FaArrowLeftLong className="hover:text-secondary-800" size={20} />
         </Link>
       </div>
     </div>
