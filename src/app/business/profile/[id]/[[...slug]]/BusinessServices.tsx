@@ -1,18 +1,13 @@
+import ServiceCard from "@/components/ServiceCard";
 import { getServicesByBusinessId } from "@/services/api";
 import React from "react";
 
 const BusinessServices = async ({ businessId }: { businessId: string }) => {
   const data = await getServicesByBusinessId(businessId);
   return (
-    <div>
+    <div className="my-20 mt-10 flex flex-col gap-y-3">
       {data.map((item, idx) => (
-        <div key={`business-service-${idx}`} className="flex">
-          <span>{item.title}</span>
-          <span>{item.price}</span>
-          <span>{item.gender_target}</span>
-          <span>{item.rating}</span>
-          <span></span>
-        </div>
+        <ServiceCard key={`business-service-${idx}`} item={item} />
       ))}
     </div>
   );
