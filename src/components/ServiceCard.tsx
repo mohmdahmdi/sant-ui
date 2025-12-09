@@ -47,7 +47,7 @@ function ServiceCard({ item }: { item: ServiceInfo }) {
       </div>
       <div className="w-full h-[1px] bg-neutral-200 mt-2"></div>
       <Link
-        href={"/business/profile/" + item.id}
+        href={"/service/timeline/" + item.id}
         className="flex justify-between items-center px-1 mt-2 text-neutral-600 hover:cursor-pointer
                    hover:text-secondary-800! hover:font-medium transition-all ease-in-out duration-400"
       >
