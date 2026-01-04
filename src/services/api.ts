@@ -1,6 +1,7 @@
 import instance, { API_URL } from "@/lib/AxiosConfig";
 import { headers } from "../lib/AxiosConfig";
 import { LocationPopupData } from "@/components/Map/bunsinessMarker";
+import { Business } from "@/types/types";
 
 export type credential = {
   full_name: string;
@@ -158,26 +159,7 @@ export async function getBeauticianInfo(id: string): Promise<BeauticianInfo> {
   return data;
 }
 
-export type BusinessInfo = {
-  id: string;
-  owner_id: string;
-  name: string;
-  description: string;
-  logo: string;
-  cover_image: string;
-  location_id: string;
-  business_type_id: string;
-  phone: string;
-  email: string;
-  website: string;
-  instagram: string;
-  whatsapp: string;
-  rating: string;
-  is_verified: boolean;
-  is_active: boolean;
-  created_at: string;
-};
-export async function getBusinessInfo(id: string): Promise<BusinessInfo> {
+export async function getBusinessInfo(id: string): Promise<Business> {
   const res = await fetch(API_URL + `/business/${id}`, {
     next: { revalidate: 60 },
   });
@@ -191,15 +173,27 @@ export type ServiceInfo = {
   business_id: string;
   category_id: string;
   title: string;
-  description: string;
+  description: string | null;
   price: string;
   duration_minutes: number;
   image: string;
-  gender_target: string;
+  gender_target: string | null;
   is_active: boolean;
   rating: string;
 };
 
+export type ServiceByBusiness = {
+  id: string;
+  title: string;
+  description: string | null;
+  price: string;
+  duration_minutes: number;
+  image: string | null;
+  is_active: boolean;
+  category_id: string;
+  category_name: string;
+  rating: string;
+};
 export async function getServiceInfo(id: string): Promise<ServiceInfo> {
   const res = await fetch(API_URL + `/services/${id}`, {
     next: { revalidate: 30 * 60 },
@@ -211,7 +205,7 @@ export async function getServiceInfo(id: string): Promise<ServiceInfo> {
 
 export async function getServicesByBusinessId(
   businessId: string
-): Promise<ServiceInfo[]> {
+): Promise<ServiceByBusiness[]> {
   const res = await fetch(
     API_URL + `/services/services-by-business/${businessId}`,
     { next: { revalidate: 60 } }

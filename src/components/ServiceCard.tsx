@@ -1,15 +1,16 @@
-import { ServiceInfo } from "@/services/api";
+import { ServiceByBusiness } from "@/services/api";
 import { FaNumber } from "@/utils/FaNumber";
 import Link from "next/link";
 import React from "react";
+import { BsLink } from "react-icons/bs";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { GoHeart } from "react-icons/go";
 
-function ServiceCard({ item }: { item: ServiceInfo }) {
+function ServiceCard({ item }: { item: ServiceByBusiness }) {
   return (
     <div className="bg-white rounded-2xl shadow-e1 pt-5 pb-2 px-3">
-      <div className="flex gap-x-3">
-        <div className="w-20 h-20 rounded-full bg-skeleton"></div>
+      <div className="flex gap-x-3 items-start">
+        <div className="w-20 h-18 rounded-full bg-skeleton"></div>
         <div className="w-full">
           <div className="flex justify-between text-primary-800! font-bold">
             <span className="">{item.title}</span>
@@ -20,6 +21,13 @@ function ServiceCard({ item }: { item: ServiceInfo }) {
               <GoHeart className="-translate-y-[1px]" size={20} />
             </div>
           </div>
+          <Link
+            href={"/service/profile" + item.category_id}
+            className="text-sm text-neutral-500 flex gap-x-1 items-center hover:text-secondary-700 transition-all duration-300 ease-in-out"
+          >
+            <BsLink />
+            {item.category_name}
+          </Link>
           <div className="grid grid-cols-2 text-primary-700">
             <div className="flex items-center gap-x-2 col-span-1">
               <span className="">قیمت: </span>

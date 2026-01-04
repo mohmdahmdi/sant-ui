@@ -1,6 +1,6 @@
 import ServiceCard from "@/components/ServiceCard";
 import { getServicesByBusinessId } from "@/services/api";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import React from "react";
 
 const BusinessServices = async ({ businessId }: { businessId: string }) => {
