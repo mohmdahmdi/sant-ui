@@ -45,9 +45,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistMono.variable} ${roboto.variable} antialiased`}>
-        <Navbar />
-        <ReactQueryProvider>{children}</ReactQueryProvider>
-        <Footer />
+        <ReactQueryProvider>
+          <div className="flex h-[100vh]">
+            <Navbar />
+            <div className="w-full overflow-y-scroll">{children}</div>
+          </div>
+          <Footer />
+        </ReactQueryProvider>
       </body>
     </html>
   );
